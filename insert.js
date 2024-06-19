@@ -1,5 +1,17 @@
-const insertValue = (tableName, colName, values)=>{
- `INSERT INTO ${tableName} (${colName}) VALUES (${values});`
+const insertValue = (db, tableName, colName, values)=>{
+  
+  let splitValue = values.split(",")
+
+  let process = splitValue.map((ele)=>{
+    return `'${ele.trim()}'`
+  })
+  let result = process.join(",")
+
+  // `INSERT INTO ${tableName} (${colName}) VALUES (${values});`
+
+//  `INSERT INTO ${tableName} (${colName}) VALUES (${result});`
+ 
+ db.run(`INSERT INTO ${tableName} (${colName}) VALUES (${result});`)
 
 //  console.log(values)
 //  console.log(typeof(values))
@@ -13,10 +25,10 @@ const insertValue = (tableName, colName, values)=>{
 //   console.log(ele)
 //   return ele.join(',')
 // })
-let something = testing.map((ele)=>{return `'${ele.trim()}'`}).join(',')
+// let something = testing.map((ele)=>{return `'${ele.trim()}'`}).join(',')
 
-console.log(something)
-console.log(typeof(something))
+// console.log(something)
+// console.log(typeof(something))
 
 /**
  * join은 배열 메서드라 안 먹는 건 이해하겠음.
@@ -26,17 +38,5 @@ console.log(typeof(something))
  */
 
   }
-
-
-
-
-  insertValue("music", "title, singer, genre, year", "낙원,정가이,game")
-
-
-
-  
-  
-  
-  
-  // module.exports = insertValue
+  module.exports = insertValue
 
