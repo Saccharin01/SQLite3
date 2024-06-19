@@ -1,4 +1,4 @@
-const alterTable = (tableName, colName,schema)=>{
-  `ALTER TABLE ${tableName} ADD COLUMN ${colName} ${schema}`
+const alterTable = (db, tableName, colName,schema)=>{
+  db.run(`ALTER TABLE ${tableName} ADD COLUMN ${colName} ${schema}`)
 }
 module.exports = alterTable
