@@ -1,9 +1,8 @@
-[
+const baseData = [
   {
       "name": "에어혼 (Airhorn)",
       "price": 52,
-      "weight": 0,
-      "isSell": 0
+      "weight": 0
   },
   {
       "name": "장치 (Apparatus)",
@@ -261,3 +260,5 @@
       "weight": 42
   }
 ]
+
+module.exports = baseData
