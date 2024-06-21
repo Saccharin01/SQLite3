@@ -1,4 +1,4 @@
-const insertValue = (db, tableName, colName, values)=>{
+const insertValue = (tableName, colName, values)=>{
   
   let splitValue = values.split(",")
 
